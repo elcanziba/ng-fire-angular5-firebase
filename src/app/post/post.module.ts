@@ -1,0 +1,26 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { PostService } from './post.service';
+import { PostDashboardComponent } from './post-dashboard/post-dashboard.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { PostListComponent } from './post-list/post-list.component';
+import { PostListItemComponent } from './post-list-item/post-list-item.component';
+
+const routes: Routes = [
+  { path: 'blog', component: PostListComponent },
+  { path: 'blog/:id', component: PostDetailsComponent }
+]
+
+@NgModule({
+  imports: [
+    SharedModule,
+    RouterModule.forChild(routes)
+  ],
+  exports: [
+    PostDashboardComponent
+  ],
+  declarations: [PostDashboardComponent, PostDetailsComponent, PostListComponent, PostListItemComponent],
+  providers: [PostService]
+})
+export class PostModule { }

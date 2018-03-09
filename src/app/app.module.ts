@@ -6,6 +6,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { RoutingModule } from './/routing.module';
+import { PostModule } from './post/post.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { RoutingModule } from './/routing.module';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     CoreModule,
-    RoutingModule
+    RoutingModule,
+    PostModule
   ],
   providers: [],
   bootstrap: [AppComponent]

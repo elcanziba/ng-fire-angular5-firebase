@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { PostModule } from '../post/post.module';
 import { UserService } from './user.service';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    PostModule
   ],
   exports: [UserListItemComponent],
   declarations: [UserDashboardComponent, UserDetailComponent, UserListComponent, UserListItemComponent],
