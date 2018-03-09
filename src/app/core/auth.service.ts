@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {
   AngularFirestore,
@@ -44,6 +45,17 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then(user => this.updateUserData(user))
     .then(() => console.log("You have successfully Created a new Account"))
+    .then(user => {
+      this.afAuth.auth.currentUser.sendEmailVerification()
+      .then(() => console.log('We sent you the email verification'))
+      .catch(error => console.log(error.message))
+    })
+    .catch(error => console.log(error.message))
+  }
+
+  resetPassword(email: string) {
+    return firebase.auth().sendPasswordResetEmail(email)
+    .then(() => console.log("We have sent you a password reset link"))
     .catch(error => console.log(error.message))
   }
 
