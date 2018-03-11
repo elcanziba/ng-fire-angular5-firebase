@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
+import { FromNowPipe } from './from-now.pipe';
 
 @NgModule({
   imports: [
@@ -13,9 +14,10 @@ import { MaterialModule } from '../material.module';
   exports: [
     CommonModule,
     FormsModule,
+    FromNowPipe,
     MaterialModule,
     ReactiveFormsModule
   ],
-  declarations: []
+  declarations: [FromNowPipe]
 })
 export class SharedModule { }

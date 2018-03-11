@@ -10,7 +10,7 @@ export const environment = {
     authDomain: "ng-fire-com.firebaseapp.com",
     databaseURL: "https://ng-fire-com.firebaseio.com",
     projectId: "ng-fire-com",
-    storageBucket: "",
+    storageBucket: "ng-fire-com.appspot.com",
     messagingSenderId: "77366479678"
   }
 };

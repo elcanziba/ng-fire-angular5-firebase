@@ -1,20 +1,34 @@
 <mat-card>
-  <section>
+    <h3>Add a Post</h3>
+    <section>
 
-  </section>
-  <section>
-    <form [formGroup]="postForm" (ngSubmit)="savePost()">
-      <mat-form-field>
-        <input matInput placeholder="Post Title" formControlName="title">
-      </mat-form-field>
-      <mat-form-field>
-        <textarea matInput placeholder="Contet" formControlName="content"></textarea>
-      </mat-form-field>
-      <mat-slide-toggle formControlName="draft">
-        Publish?
-      </mat-slide-toggle>
+      <input type="file" name="file" id="file" (change)="uploadPostImage($event)">
 
-      <button mat-raised-button type="submit" color="accent">Save</button>
-    </form>
-  </section>
-</mat-card>
+      <div [hidden]="!uploadPercent">
+        <mat-progress-bar mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>
+      </div>
+
+      <div class="image-preview" [hidden]="!imageURL">
+        <img [src]="imageURL || '//:0' ">
+      </div>
+
+    </section>
+
+    <section>
+      <form [formGroup]="postForm" (ngSubmit)="savePost()">
+
+        <mat-form-field>
+          <input matInput placeholder="Post title" formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput placeholder="textarea content" formControlName="content"></textarea>
+        </mat-form-field>
+
+        <mat-slide-toggle formControlName="draft">Publish?</mat-slide-toggle>
+
+        <button mat-raised-button type="submit" color="accent">Save</button>
+
+      </form>
+    </section>
+  </mat-card>
