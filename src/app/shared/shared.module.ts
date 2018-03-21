@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { FromNowPipe } from './from-now.pipe';
+import { UploadComponent } from './upload/upload.component';
+import { UploadService } from './upload/upload.service';
 
 @NgModule({
   imports: [
@@ -18,6 +20,7 @@ import { FromNowPipe } from './from-now.pipe';
     MaterialModule,
     ReactiveFormsModule
   ],
-  declarations: [FromNowPipe]
+  declarations: [FromNowPipe, UploadComponent],
+  providers: [UploadService]
 })
 export class SharedModule { }
